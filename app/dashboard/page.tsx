@@ -2,41 +2,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "../../lib/supabase/server";
 import { logout } from "../login/actions";
 import ManageMembershipButton from "./ManageMembershipButton";
-
-const perks = [
-  {
-    name: "IRA Club Member Savings",
-    kicker: "Exclusive Member Benefit",
-    description:
-      "Access IRA Club member-only pricing and savings available through Investor's Pro.",
-    href: "#",
-    linkLabel: "Open Member Savings",
-  },
-  {
-    name: "CapitalQuest",
-    kicker: "AI-Powered Due Diligence",
-    description:
-      "Access your Investor's Pro benefit for AI-powered due diligence tools and resources.",
-    href: "#",
-    linkLabel: "Access CapitalQuest",
-  },
-  {
-    name: "iFlip",
-    kicker: "AI-Powered Smartfolios",
-    description:
-      "Connect to the exclusive smartfolio offering available through your paid membership.",
-    href: "#",
-    linkLabel: "Access iFlip",
-  },
-  {
-    name: "IRA Club Resource Center",
-    kicker: "Guidance & Events",
-    description:
-      "Access member resources, education, events and expert guidance in one place.",
-    href: "#",
-    linkLabel: "Open Resource Center",
-  },
-];
+import EventsClient from "../components/EventsClient";
 
 function formatDate(value: string | null | undefined) {
   if (!value) return null;
@@ -48,6 +14,33 @@ function formatDate(value: string | null | undefined) {
     timeZone: "UTC",
   }).format(new Date(value));
 }
+
+const benefits = [
+  {
+    name: "Investor's Row",
+    offer: "$70 Off Your Asset Fee",
+    description:
+      "Discounted access to Investor's Row for browsing alternative asset opportunities for inspiration.",
+    logo: null,
+    href: "#",
+  },
+  {
+    name: "IRA Club SBS",
+    offer: "50% Off Any Small Business Plan",
+    description:
+      "50% off for members who are also small business owners who need a flexible, scalable retirement plan.",
+    logo: "/member-assets/sbs.png",
+    href: "#",
+  },
+  {
+    name: "iFlip",
+    offer: "Additional SmartFolios Access For Free",
+    description:
+      "Exclusive access to additional SmartFolio options not available to most.",
+    logo: "/member-assets/iflip.png",
+    href: "#",
+  },
+];
 
 export default async function Dashboard() {
   const supabase = await createClient();
@@ -78,204 +71,359 @@ export default async function Dashboard() {
   );
 
   const cancelling =
-    active &&
-    profile?.cancel_at_period_end === true;
+    active && profile?.cancel_at_period_end === true;
+
+  const firstName =
+    profile?.full_name?.trim().split(" ")[0] ||
+    user.email?.split("@")[0] ||
+    "Member";
 
   return (
-    <div className="dashboard">
-      <header className="dash-header">
-        <div className="container dash-row">
-          <div className="brand">
-            <span className="brand-mark">IRA</span>
-            <span>IRA CLUB</span>
+    <div className="pro-dashboard">
+      {/* HEADER */}
+      <header className="pro-header">
+        <div className="pro-shell pro-header-inner">
+          <div className="pro-brand">
+            <div className="pro-brand-mark">IRA</div>
+
+            <div>
+              <strong>IRA CLUB</strong>
+              <span>Investor&apos;s Pro</span>
+            </div>
           </div>
 
-          <form action={logout}>
-            <button className="btn btn-outline">
-              Log Out
-            </button>
-          </form>
+          <div className="pro-header-actions">
+            {active && <ManageMembershipButton />}
+
+            <form action={logout}>
+              <button className="pro-outline-button">
+                Log Out
+              </button>
+            </form>
+          </div>
         </div>
       </header>
 
-      <main className="container dash-main">
-        <div className="welcome">
-          <div className="eyebrow">
-            Investor's Pro Member Portal
-          </div>
+      <main>
+        {/* WELCOME */}
+        <section className="pro-hero">
+          <div className="pro-shell">
+            <div className="pro-eyebrow">
+              INVESTOR&apos;S PRO MEMBER PORTAL
+            </div>
 
-          <h1>
-            Welcome, {profile?.full_name || user.email}.
-          </h1>
+            <h1>
+              Welcome, <span>{firstName}.</span>
+            </h1>
 
-          <span className="status">
-            {active
-              ? "ACTIVE — $299/YEAR"
-              : "MEMBERSHIP NOT ACTIVE"}
-          </span>
+            <div className="pro-membership-row">
+              <div>
+                <strong>Investor&apos;s Pro</strong>
 
-          <p
-            className="muted"
-            style={{
-              maxWidth: 720,
-            }}
-          >
-            Your Investor's Pro membership gives you access to
-            exclusive partner links, resources, savings and member
-            perks.
-          </p>
-
-          {active && accessThrough && (
-            <div
-              style={{
-                marginTop: "18px",
-                padding: "16px 18px",
-                background: cancelling
-                  ? "#fff8e6"
-                  : "#eef7df",
-                borderRadius: "12px",
-                maxWidth: "720px",
-              }}
-            >
-              <div
-                style={{
-                  fontWeight: 800,
-                  color: "#0d3150",
-                }}
-              >
-                Access through {accessThrough}
+                <p>
+                  Your access to exclusive discounted pricing,
+                  services, events, and more.
+                </p>
               </div>
 
-              {cancelling ? (
-                <div
-                  style={{
-                    marginTop: "5px",
-                    color: "#8a5a00",
-                    fontWeight: 700,
-                  }}
-                >
-                  Your membership will not renew after this date.
-                </div>
-              ) : (
-                <div
-                  style={{
-                    marginTop: "5px",
-                    color: "#41610f",
-                  }}
-                >
-                  Your annual membership is set to renew automatically.
-                </div>
-              )}
+              <div
+                className={
+                  active
+                    ? "pro-status active"
+                    : "pro-status inactive"
+                }
+              >
+                {active
+                  ? "ACTIVE MEMBERSHIP"
+                  : "MEMBERSHIP NOT ACTIVE"}
+              </div>
             </div>
-          )}
-        </div>
+
+            {active && accessThrough && (
+              <div className="pro-access-note">
+                Access through{" "}
+                <strong>{accessThrough}</strong>
+
+                {cancelling && (
+                  <span>
+                    Your membership will not renew after this date.
+                  </span>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
 
         {active ? (
           <>
-            <div className="panel">
-              <div className="eyebrow">
-                Your Benefits
-              </div>
+            {/* BENEFITS */}
+            <section className="pro-section">
+              <div className="pro-shell">
+                <div className="pro-section-heading">
+                  <span>START EXPLORING</span>
 
-              <h2>Investor's Pro Services</h2>
+                  <h2>Your Member Benefits</h2>
 
-              <p className="muted">
-                Use the cards below to connect directly with the
-                services included with your membership.
-              </p>
+                  <p>
+                    Take a look around and find the services and
+                    benefits that are right for you.
+                  </p>
+                </div>
 
-              <div className="member-grid">
-                {perks.map((perk) => (
-                  <article
-                    className="member-card"
-                    key={perk.name}
-                  >
-                    <div className="member-kicker">
-                      {perk.kicker}
-                    </div>
-
-                    <h3>{perk.name}</h3>
-
-                    <p>{perk.description}</p>
-
-                    <a
-                      className="member-link"
-                      href={perk.href}
-                      target={
-                        perk.href === "#"
-                          ? undefined
-                          : "_blank"
-                      }
-                      rel={
-                        perk.href === "#"
-                          ? undefined
-                          : "noreferrer"
-                      }
+                <div className="pro-benefit-grid">
+                  {benefits.map((benefit) => (
+                    <article
+                      className="pro-benefit-card"
+                      key={benefit.name}
                     >
-                      {perk.linkLabel} →
+                      <div className="pro-benefit-logo">
+                        {benefit.logo ? (
+                          <img
+                            src={benefit.logo}
+                            alt={benefit.name}
+                          />
+                        ) : (
+                          <div className="investors-row-logo">
+                            INVESTOR&apos;S
+                            <strong>ROW</strong>
+                          </div>
+                        )}
+                      </div>
+
+                      <h3>{benefit.offer}</h3>
+
+                      <p>{benefit.description}</p>
+
+                      <a
+                        className="pro-access-link"
+                        href={benefit.href}
+                      >
+                        Access →
+                      </a>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* SUPPORT */}
+            <section className="pro-support">
+              <div className="pro-shell pro-support-inner">
+                <div>
+                  <span>NEED HELP?</span>
+
+                  <h2>Questions about your benefits?</h2>
+
+                  <p>
+                    If you are having issues with discount codes or
+                    have a question about what&apos;s included, our
+                    team can help.
+                  </p>
+                </div>
+
+                <div className="pro-support-buttons">
+                  <a
+                    href="#"
+                    className="pro-light-button"
+                  >
+                    Schedule a Call
+                  </a>
+
+                  <a
+                    href="mailto:info@iraclub.com"
+                    className="pro-white-button"
+                  >
+                    Submit a Ticket
+                  </a>
+                </div>
+              </div>
+            </section>
+
+            {/* EVENTS */}
+            <section className="pro-section">
+              <div className="pro-shell">
+                <div className="pro-section-heading">
+                  <span>MEMBER EXPERIENCES</span>
+
+                  <h2>Events &amp; Live Sessions</h2>
+
+                  <p>
+                    Get free and member-rate access to educational
+                    events on alternative investing and wealth
+                    building, from livestreams to in-person
+                    experiences.
+                  </p>
+                </div>
+
+                {/* WORKING INTERACTIVE FILTERS */}
+                <EventsClient />
+
+                <p className="pro-disclaimer">
+                  IRA Club is providing access and member pricing
+                  as an educational benefit. IRA Club does not
+                  endorse specific investments, sponsors, or
+                  strategies discussed at these events.
+                </p>
+              </div>
+            </section>
+
+            {/* PARTNER BENEFITS */}
+            <section className="pro-partners">
+              <div className="pro-shell">
+                <div className="pro-section-heading">
+                  <span>EXCLUSIVE ACCESS</span>
+
+                  <h2>
+                    More Investor&apos;s Pro Benefits
+                  </h2>
+                </div>
+
+                <div className="pro-partner-grid">
+                  {/* CAPITALQUEST */}
+                  <article className="pro-partner-card">
+                    <img
+                      src="/member-assets/capitalquest.jpg"
+                      alt="CapitalQuest"
+                    />
+
+                    <h3>
+                      Free Due Diligence with CapitalQuest
+                    </h3>
+
+                    <p>
+                      Investor&apos;s Pro members get access to
+                      CapitalQuest&apos;s AI-assisted due diligence
+                      tools to support their independent evaluation
+                      of alternative investment opportunities.
+                    </p>
+
+                    <a href="#">
+                      See Your CapitalQuest Benefit →
                     </a>
                   </article>
-                ))}
+
+                  {/* IFLIP */}
+                  <article className="pro-partner-card">
+                    <img
+                      src="/member-assets/iflip.png"
+                      alt="iFlip"
+                    />
+
+                    <h3>
+                      Additional SmartFolios Access
+                    </h3>
+
+                    <p>
+                      Access additional SmartFolio options available
+                      as part of your Investor&apos;s Pro
+                      membership.
+                    </p>
+
+                    <a href="#">
+                      Access iFlip →
+                    </a>
+                  </article>
+
+                  {/* SBS */}
+                  <article className="pro-partner-card">
+                    <img
+                      src="/member-assets/sbs.png"
+                      alt="IRA Club SBS"
+                    />
+
+                    <h3>
+                      Save 50% on Your Small Business Plan
+                    </h3>
+
+                    <p>
+                      Investor&apos;s Pro members receive 50% off
+                      eligible IRA Club SBS small-business
+                      retirement plan tiers.
+                    </p>
+
+                    <a href="#">
+                      View SBS Benefit →
+                    </a>
+                  </article>
+                </div>
               </div>
-            </div>
+            </section>
 
-            <div className="panel">
-              <div className="eyebrow">
-                Membership
+            {/* SMARTFOLIO */}
+            <section className="pro-section">
+              <div className="pro-shell">
+                <div className="pro-smartfolio">
+                  <div className="pro-smartfolio-content">
+                    <span>SMARTFOLIOS</span>
+
+                    <h2>
+                      More Investing Options for Members
+                    </h2>
+
+                    <p>
+                      Investor&apos;s Pro members receive access to
+                      additional SmartFolio options through iFlip.
+                    </p>
+
+                    <a
+                      href="#"
+                      className="pro-light-button"
+                    >
+                      Access SmartFolios
+                    </a>
+                  </div>
+
+                  <div className="pro-smartfolio-image">
+                    <img
+                      src="/member-assets/smartfolio.png"
+                      alt="SmartFolio"
+                    />
+                  </div>
+                </div>
               </div>
+            </section>
 
-              <h2>Your Annual Access</h2>
+            {/* BILLING */}
+            <section className="pro-account">
+              <div className="pro-shell pro-account-inner">
+                <div>
+                  <span>YOUR ACCOUNT</span>
 
-              {cancelling && accessThrough ? (
-                <>
-                  <p className="muted">
-                    Your $299 annual membership remains active
-                    through <strong>{accessThrough}</strong>.
-                  </p>
+                  <h2>Manage Your Membership</h2>
 
-                  <p
-                    style={{
-                      fontWeight: 700,
-                      color: "#8a5a00",
-                    }}
-                  >
-                    Your membership is scheduled to end and will
-                    not renew.
-                  </p>
-                </>
-              ) : (
-                <p className="muted">
-                  Your membership is currently active at $299 per
-                  year and is set to renew automatically.
-                </p>
-              )}
+                  {cancelling && accessThrough ? (
+                    <p>
+                      Your membership remains active through{" "}
+                      <strong>{accessThrough}</strong> and will
+                      not renew.
+                    </p>
+                  ) : (
+                    <p>
+                      Your Investor&apos;s Pro membership is
+                      currently active at $299 per year.
+                    </p>
+                  )}
+                </div>
 
-              <p className="muted">
-                Use Stripe's secure billing portal to update your
-                payment method, view invoices, cancel your
-                subscription or resume renewal.
-              </p>
-
-              <div
-                style={{
-                  marginTop: "20px",
-                }}
-              >
                 <ManageMembershipButton />
               </div>
-            </div>
+            </section>
           </>
         ) : (
-          <div className="panel">
-            <h2>
-              Your membership is not active.
-            </h2>
+          <section className="pro-section">
+            <div className="pro-shell">
+              <div className="pro-inactive-card">
+                <h2>
+                  Your membership is not active.
+                </h2>
 
-            <p className="muted">
-              Access to member perks is unlocked only after
-              the annual $299 payment is confirmed.
-            </p>
-          </div>
+                <p>
+                  Member benefits become available after your
+                  annual $299 membership payment is confirmed.
+                </p>
+              </div>
+            </div>
+          </section>
         )}
       </main>
     </div>
