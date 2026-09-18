@@ -1994,3 +1994,55 @@ h1 {
     padding-bottom: 38px !important;
   }
 }
+
+/* =========================================================
+   FINAL HERO NAME COLOR
+   ========================================================= */
+
+.pro-dashboard .pro-hero h1 {
+  color: #ffffff !important;
+}
+
+.pro-dashboard .pro-hero h1 span {
+  color: #42b9ed !important;
+}
+
+/* Transparent IRA Club header logo */
+.pro-dashboard .pro-main-logo {
+  background: transparent !important;
+  width: 82px !important;
+  height: 82px !important;
+  object-fit: contain !important;
+}
+
+/* =========================================================
+   IRA CLUB LOGO SIZE - FINAL OVERRIDE
+   ========================================================= */
+
+.pro-dashboard .pro-brand.pro-brand-stacked {
+  width: 130px !important;
+  gap: 5px !important;
+}
+
+.pro-dashboard .pro-main-logo {
+  width: 120px !important;
+  height: 120px !important;
+  max-width: none !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+.pro-dashboard .pro-investors-pro-label {
+  width: 120px !important;
+  padding: 5px 6px !important;
+  font-size: 12px !important;
+  line-height: 1 !important;
+  text-align: center !important;
+}
+
+/* Give the larger logo enough header space */
+.pro-dashboard .pro-header-inner {
+  min-height: 155px !important;
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+}
