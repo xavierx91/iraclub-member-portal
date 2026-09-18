@@ -38,7 +38,7 @@ export default function ManageMembershipButton() {
   return (
     <div>
       <button
-        className="btn btn-dark"
+        className="btn manage-membership-btn"
         onClick={openPortal}
         disabled={loading}
         type="button"
@@ -60,3 +60,4 @@ export default function ManageMembershipButton() {
     </div>
   );
 }
+

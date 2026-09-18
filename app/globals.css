@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --navy: #102a43;
   --blue: #1d5f8f;
   --green: #a8cf45;
@@ -2045,4 +2045,165 @@ h1 {
   min-height: 155px !important;
   padding-top: 12px !important;
   padding-bottom: 12px !important;
+}
+/* =========================================================
+   FINAL HEADER LOGO + MANAGE MEMBERSHIP
+   ========================================================= */
+
+/* Larger IRA Club branding area */
+.pro-dashboard .pro-brand.pro-brand-stacked {
+  width: 160px !important;
+  gap: 6px !important;
+}
+
+/* Make transparent IRA Club logo larger */
+.pro-dashboard .pro-main-logo {
+  width: 150px !important;
+  height: 150px !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  background: transparent !important;
+}
+
+/* Investor's Pro badge under logo */
+.pro-dashboard .pro-investors-pro-label {
+  width: 150px !important;
+  padding: 6px 8px !important;
+  background: #00a8e8 !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Header height for larger logo */
+.pro-dashboard .pro-header-inner {
+  min-height: 190px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
+}
+
+/* Manage Membership - light blue */
+.pro-dashboard .pro-header-actions > button {
+  background: #42b9ed !important;
+  border: 1px solid #42b9ed !important;
+  color: #ffffff !important;
+  min-height: 56px !important;
+  padding: 0 28px !important;
+  font-weight: 800 !important;
+}
+
+/* Manage Membership hover */
+.pro-dashboard .pro-header-actions > button:hover {
+  background: #2daee5 !important;
+  border-color: #2daee5 !important;
+}
+
+/* Keep Log Out white */
+.pro-dashboard .pro-header form .pro-outline-button {
+  background: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  color: #093345 !important;
+}
+
+/* FINAL MANAGE MEMBERSHIP COLOR OVERRIDE */
+.pro-dashboard .pro-header-actions > button,
+.pro-dashboard .pro-header-actions > form:first-child button,
+.pro-dashboard .pro-header-actions button:not(.pro-outline-button) {
+  background: #42b9ed !important;
+  background-color: #42b9ed !important;
+  border-color: #42b9ed !important;
+  color: #ffffff !important;
+}
+
+.pro-dashboard .pro-header-actions > button:hover,
+.pro-dashboard .pro-header-actions > form:first-child button:hover,
+.pro-dashboard .pro-header-actions button:not(.pro-outline-button):hover {
+  background: #42b9ed !important;
+  background-color: #42b9ed !important;
+  border-color: #42b9ed !important;
+  color: #ffffff !important;
+}
+
+/* KEEP LOG OUT WHITE */
+.pro-dashboard .pro-header-actions form .pro-outline-button {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+  color: #093345 !important;
+}
+
+/* =========================================================
+   FORCE MANAGE MEMBERSHIP LIGHT BLUE
+   ========================================================= */
+
+/* Any button in the header */
+.pro-dashboard .pro-header .pro-header-actions button {
+  background: #42b9ed !important;
+  background-color: #42b9ed !important;
+  border: 1px solid #42b9ed !important;
+  color: #ffffff !important;
+}
+
+/* Manage Membership links, if component renders an <a> */
+.pro-dashboard .pro-header .pro-header-actions a {
+  background: #42b9ed !important;
+  background-color: #42b9ed !important;
+  border: 1px solid #42b9ed !important;
+  color: #ffffff !important;
+}
+
+/* Log Out is inside its form â€” force it back to white */
+.pro-dashboard .pro-header .pro-header-actions form button {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  color: #093345 !important;
+}
+
+/* Manage Membership - match member name blue */
+.pro-dashboard .pro-header .btn.btn-dark {
+  background: #42b9ed !important;
+  border-color: #42b9ed !important;
+  color: #ffffff !important;
+}
+
+.pro-dashboard .pro-header .btn.btn-dark:hover {
+  background: #42b9ed !important;
+  border-color: #42b9ed !important;
+  color: #ffffff !important;
+}
+.manage-membership-btn {
+  background: #42b9ed !important;
+  border: 1px solid #42b9ed !important;
+  color: #ffffff !important;
+}
+
+.manage-membership-btn:hover {
+  background: #42b9ed !important;
+  border-color: #42b9ed !important;
+  color: #ffffff !important;
+}
+
+/* Manage Membership - white with member-name blue text */
+.manage-membership-btn {
+  background: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  color: #42b9ed !important;
+}
+
+/* Manage Membership - white button, blue text */
+.manage-membership-btn {
+  background: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  color: #42b9ed !important;
+}
+
+.manage-membership-btn:hover {
+  background: #ffffff !important;
+  border-color: #42b9ed !important;
+  color: #42b9ed !important;
 }
