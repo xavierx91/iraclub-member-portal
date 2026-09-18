@@ -57,16 +57,17 @@ export default async function Dashboard() {
       {/* HEADER */}
       <header className="pro-header">
         <div className="pro-shell pro-header-inner">
-          <div className="pro-brand">
-            <div className="pro-brand-mark">
-              IRA
-            </div>
+          <div className="pro-brand pro-brand-stacked">
+  <img
+    src="/member-assets/ira-club-logo.png"
+    alt="IRA Club"
+    className="pro-main-logo"
+  />
 
-            <div className="pro-brand-copy">
-              <strong>IRA CLUB</strong>
-              <span>Investor&apos;s Pro</span>
-            </div>
-          </div>
+  <span className="pro-investors-pro-label">
+    Investor&apos;s Pro
+  </span>
+</div>
 
           <div className="pro-header-actions">
             {active && <ManageMembershipButton />}

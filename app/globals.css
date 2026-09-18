@@ -1682,3 +1682,315 @@ h1 {
     right: -4px;
   }
 }
+/* =========================================================
+   FINAL HEADER + EVENTS UPDATES
+   ========================================================= */
+
+/* Top header must be #093345 */
+.pro-dashboard .pro-header {
+  background: #093345 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Stack IRA Club logo ABOVE Investor's Pro */
+.pro-dashboard .pro-brand.pro-brand-stacked {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+}
+
+/* Actual IRA Club logo */
+.pro-dashboard .pro-main-logo {
+  display: block !important;
+  width: 82px !important;
+  height: 82px !important;
+  object-fit: contain !important;
+  background: #ffffff;
+}
+
+/* Investor's Pro directly underneath */
+.pro-dashboard .pro-investors-pro-label {
+  display: block !important;
+  width: 82px !important;
+  box-sizing: border-box !important;
+  background: #00a8e8 !important;
+  color: #ffffff !important;
+  padding: 4px 3px !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Give header enough height for stacked logo */
+.pro-dashboard .pro-header-inner {
+  min-height: 112px !important;
+}
+
+/* Manage Membership */
+.pro-dashboard .pro-header-actions > button,
+.pro-dashboard .pro-header-actions .pro-outline-button {
+  border-radius: 0 !important;
+}
+
+/* Header logout */
+.pro-dashboard .pro-header form .pro-outline-button {
+  background: #ffffff !important;
+  color: #093345 !important;
+  border: 1px solid #ffffff !important;
+}
+
+/* Selected event filter must be BLACK */
+.pro-dashboard .pro-event-filters button.pro-filter-active,
+.pro-dashboard
+  .pro-event-filters
+  button:first-child.pro-filter-active {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Unselected event filters */
+.pro-dashboard .pro-event-filters button:not(.pro-filter-active) {
+  background: #ffffff !important;
+  color: #093345 !important;
+  border-color: #d8e1e5 !important;
+}
+
+/* SEP / OCT date boxes must be BLACK */
+.pro-dashboard .pro-event-date {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Date text stays white */
+.pro-dashboard .pro-event-date span,
+.pro-dashboard .pro-event-date strong {
+  color: #ffffff !important;
+}
+
+/* Keep square corners */
+.pro-dashboard .pro-event-date,
+.pro-dashboard .pro-event,
+.pro-dashboard .pro-event-filters button {
+  border-radius: 0 !important;
+}
+
+/* =========================================================
+   MEMBER HELP BACKGROUND
+   ========================================================= */
+
+.pro-dashboard .pro-support {
+  background: #093345 !important;
+}
+
+.pro-dashboard .pro-support-inner {
+  background: #093345 !important;
+}
+
+/* Keep help text white */
+.pro-dashboard .pro-support h2,
+.pro-dashboard .pro-support p {
+  color: #ffffff !important;
+}
+
+/* NEED HELP label */
+.pro-dashboard .pro-support span {
+  color: #42b9ed !important;
+}
+
+/* =========================================================
+   INVESTOR'S PRO - HEADER POLISH
+   ========================================================= */
+
+/* Main header */
+.pro-dashboard .pro-header {
+  background: #093345 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Keep header content centered and compact */
+.pro-dashboard .pro-header-inner {
+  min-height: 94px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Logo + Investor's Pro stacked */
+.pro-dashboard .pro-brand.pro-brand-stacked {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  width: 86px !important;
+}
+
+/* IRA Club logo */
+.pro-dashboard .pro-main-logo {
+  display: block !important;
+  width: 68px !important;
+  height: 68px !important;
+  object-fit: contain !important;
+  background: #ffffff !important;
+}
+
+/* Investor's Pro badge underneath logo */
+.pro-dashboard .pro-investors-pro-label {
+  display: block !important;
+  width: 82px !important;
+  margin: 0 !important;
+  padding: 4px 4px !important;
+  box-sizing: border-box !important;
+
+  background: #00a8e8 !important;
+  color: #ffffff !important;
+
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Header action area */
+.pro-dashboard .pro-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+/* Manage Membership button */
+.pro-dashboard .pro-header-actions > button {
+  min-height: 44px !important;
+  padding: 0 20px !important;
+  border: 1px solid #ffffff !important;
+  background: transparent !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
+}
+
+/* Logout */
+.pro-dashboard .pro-header form .pro-outline-button {
+  min-height: 44px !important;
+  padding: 0 20px !important;
+  background: #ffffff !important;
+  color: #093345 !important;
+  border: 1px solid #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: 0 !important;
+}
+
+/* HERO - connect cleanly with header */
+.pro-dashboard .pro-hero {
+  background: #093345 !important;
+  color: #ffffff !important;
+  padding-top: 52px !important;
+  padding-bottom: 52px !important;
+}
+
+.pro-dashboard .pro-hero h1,
+.pro-dashboard .pro-hero h1 span {
+  color: #ffffff !important;
+}
+
+.pro-dashboard .pro-hero .pro-eyebrow {
+  color: #42b9ed !important;
+}
+
+/* EVENT FILTERS */
+.pro-dashboard .pro-event-filters {
+  gap: 10px !important;
+}
+
+.pro-dashboard .pro-event-filters button {
+  min-height: 46px !important;
+  padding: 0 22px !important;
+  border-radius: 0 !important;
+  font-weight: 700 !important;
+}
+
+/* Selected event filter */
+.pro-dashboard .pro-event-filters button.pro-filter-active,
+.pro-dashboard
+  .pro-event-filters
+  button:first-child.pro-filter-active {
+  background: #000000 !important;
+  border-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Non-selected filters */
+.pro-dashboard
+  .pro-event-filters
+  button:not(.pro-filter-active) {
+  background: #ffffff !important;
+  border: 1px solid #d5e0e5 !important;
+  color: #093345 !important;
+}
+
+/* Event date blocks */
+.pro-dashboard .pro-event-date {
+  background: #000000 !important;
+  border: 1px solid #000000 !important;
+  color: #ffffff !important;
+  border-radius: 0 !important;
+}
+
+.pro-dashboard .pro-event-date span,
+.pro-dashboard .pro-event-date strong {
+  color: #ffffff !important;
+}
+
+/* Event cards */
+.pro-dashboard .pro-event {
+  border: 1px solid #d5e0e5 !important;
+  border-radius: 0 !important;
+}
+
+/* Mobile header */
+@media (max-width: 640px) {
+  .pro-dashboard .pro-header-inner {
+    min-height: 82px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+
+  .pro-dashboard .pro-brand.pro-brand-stacked {
+    width: 70px !important;
+  }
+
+  .pro-dashboard .pro-main-logo {
+    width: 56px !important;
+    height: 56px !important;
+  }
+
+  .pro-dashboard .pro-investors-pro-label {
+    width: 70px !important;
+    font-size: 9px !important;
+  }
+
+  .pro-dashboard .pro-header-actions {
+    gap: 7px !important;
+  }
+
+  .pro-dashboard .pro-header-actions > button,
+  .pro-dashboard .pro-header form .pro-outline-button {
+    min-height: 38px !important;
+    padding: 0 10px !important;
+    font-size: 11px !important;
+  }
+
+  .pro-dashboard .pro-hero {
+    padding-top: 38px !important;
+    padding-bottom: 38px !important;
+  }
+}
