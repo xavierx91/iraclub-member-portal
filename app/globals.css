@@ -1413,3 +1413,272 @@ h1 {
     width: 100%;
   }
 }
+
+/* =========================================================
+   INVESTOR'S PRO DASHBOARD - SEPTEMBER 2026 EDITS
+   ========================================================= */
+
+/* Sharp corners throughout member portal */
+.pro-dashboard *,
+.pro-dashboard *::before,
+.pro-dashboard *::after {
+  border-radius: 0 !important;
+}
+
+/* HEADER */
+
+.pro-dashboard .pro-header {
+  background: #ffffff;
+}
+
+.pro-dashboard .pro-brand {
+  align-items: center;
+}
+
+.pro-dashboard .pro-brand-mark {
+  border: 2px solid #169ed9;
+  background: #ffffff;
+  color: #174b70;
+  padding: 7px 10px;
+  font-weight: 800;
+}
+
+.pro-dashboard .pro-brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pro-dashboard .pro-brand-copy strong {
+  color: #111111;
+  letter-spacing: 1px;
+}
+
+.pro-dashboard .pro-brand-copy span {
+  display: inline-block;
+  width: auto;
+  margin-top: 5px;
+  padding: 4px 9px;
+  background: #00a8e8;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* HERO */
+
+.pro-dashboard .pro-hero {
+  background: #093345;
+  color: #ffffff;
+}
+
+.pro-dashboard .pro-hero .pro-eyebrow {
+  color: #41b6e6;
+}
+
+.pro-dashboard .pro-hero h1 {
+  color: #ffffff;
+}
+
+.pro-dashboard .pro-hero h1 span {
+  color: #ffffff;
+}
+
+.pro-dashboard .pro-membership-row {
+  background: #ffffff;
+  color: #17212b;
+  border: 1px solid #d8e1e5;
+}
+
+.pro-dashboard .pro-membership-row strong {
+  color: #093345;
+}
+
+.pro-dashboard .pro-membership-row p {
+  color: #657482;
+}
+
+.pro-dashboard .pro-access-note {
+  color: #ffffff;
+}
+
+/* BENEFITS CAROUSEL */
+
+.pro-benefit-carousel-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.pro-benefit-carousel {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 1px 14px;
+}
+
+.pro-benefit-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.pro-benefit-carousel .pro-benefit-card {
+  flex: 0 0 calc((100% - 48px) / 3);
+  min-width: calc((100% - 48px) / 3);
+  scroll-snap-align: start;
+  border: 1px solid #d8e1e5;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgba(9, 51, 69, 0.07);
+}
+
+/* SERVICE LOGOS */
+
+.pro-benefit-carousel .pro-benefit-logo {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pro-benefit-carousel .pro-benefit-logo img {
+  display: block;
+  max-width: 150px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Investor's Row circular image */
+
+.pro-benefit-carousel
+  .pro-benefit-card:first-child
+  .pro-benefit-logo img {
+  width: 92px;
+  height: 92px;
+  object-fit: contain;
+}
+
+/* CAROUSEL ARROWS */
+
+.pro-carousel-arrow {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 74px;
+  border: 1px solid #cfdce2;
+  background: #ffffff;
+  color: #093345;
+  font-size: 44px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(9, 51, 69, 0.12);
+}
+
+.pro-carousel-arrow:hover {
+  background: #093345;
+  color: #ffffff;
+}
+
+.pro-carousel-arrow-left {
+  left: -23px;
+}
+
+.pro-carousel-arrow-right {
+  right: -23px;
+}
+
+/* SUPPORT */
+
+.pro-dashboard .pro-support,
+.pro-dashboard .pro-support-inner,
+.pro-dashboard .pro-light-button,
+.pro-dashboard .pro-white-button,
+.pro-dashboard .pro-outline-button {
+  border-radius: 0 !important;
+}
+
+/* EVENT FILTER BUTTONS */
+
+.pro-dashboard .pro-event-filters button {
+  border-radius: 0 !important;
+}
+
+/* EVENT CARDS */
+
+.pro-dashboard .pro-event {
+  border-radius: 0 !important;
+}
+
+.pro-dashboard .pro-event-date {
+  border-radius: 0 !important;
+}
+
+.pro-dashboard .pro-event-price a {
+  border-radius: 0 !important;
+}
+
+/* MEMBERSHIP STATUS */
+
+.pro-dashboard .pro-status {
+  border-radius: 0 !important;
+}
+
+/* ACCOUNT */
+
+.pro-dashboard .pro-account,
+.pro-dashboard .pro-account-inner,
+.pro-dashboard .pro-inactive-card {
+  border-radius: 0 !important;
+}
+
+/* TABLET */
+
+@media (max-width: 900px) {
+  .pro-benefit-carousel .pro-benefit-card {
+    flex-basis: calc((100% - 24px) / 2);
+    min-width: calc((100% - 24px) / 2);
+  }
+
+  .pro-carousel-arrow-left {
+    left: -10px;
+  }
+
+  .pro-carousel-arrow-right {
+    right: -10px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 640px) {
+  .pro-benefit-carousel {
+    gap: 14px;
+  }
+
+  .pro-benefit-carousel .pro-benefit-card {
+    flex-basis: calc(100% - 30px);
+    min-width: calc(100% - 30px);
+  }
+
+  .pro-carousel-arrow {
+    width: 38px;
+    height: 60px;
+    font-size: 36px;
+  }
+
+  .pro-carousel-arrow-left {
+    left: -4px;
+  }
+
+  .pro-carousel-arrow-right {
+    right: -4px;
+  }
+}

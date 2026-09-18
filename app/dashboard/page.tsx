@@ -3,6 +3,7 @@ import { createClient } from "../../lib/supabase/server";
 import { logout } from "../login/actions";
 import ManageMembershipButton from "./ManageMembershipButton";
 import EventsClient from "../components/EventsClient";
+import BenefitsCarousel from "../components/BenefitsCarousel";
 
 function formatDate(value: string | null | undefined) {
   if (!value) return null;
@@ -14,33 +15,6 @@ function formatDate(value: string | null | undefined) {
     timeZone: "UTC",
   }).format(new Date(value));
 }
-
-const benefits = [
-  {
-    name: "Investor's Row",
-    offer: "$70 Off Your Asset Fee",
-    description:
-      "Discounted access to Investor's Row for browsing alternative asset opportunities for inspiration.",
-    logo: null,
-    href: "#",
-  },
-  {
-    name: "IRA Club SBS",
-    offer: "50% Off Any Small Business Plan",
-    description:
-      "50% off for members who are also small business owners who need a flexible, scalable retirement plan.",
-    logo: "/member-assets/sbs.png",
-    href: "#",
-  },
-  {
-    name: "iFlip",
-    offer: "Additional SmartFolios Access For Free",
-    description:
-      "Exclusive access to additional SmartFolio options not available to most.",
-    logo: "/member-assets/iflip.png",
-    href: "#",
-  },
-];
 
 export default async function Dashboard() {
   const supabase = await createClient();
@@ -84,9 +58,11 @@ export default async function Dashboard() {
       <header className="pro-header">
         <div className="pro-shell pro-header-inner">
           <div className="pro-brand">
-            <div className="pro-brand-mark">IRA</div>
+            <div className="pro-brand-mark">
+              IRA
+            </div>
 
-            <div>
+            <div className="pro-brand-copy">
               <strong>IRA CLUB</strong>
               <span>Investor&apos;s Pro</span>
             </div>
@@ -96,7 +72,10 @@ export default async function Dashboard() {
             {active && <ManageMembershipButton />}
 
             <form action={logout}>
-              <button className="pro-outline-button">
+              <button
+                type="submit"
+                className="pro-outline-button"
+              >
                 Log Out
               </button>
             </form>
@@ -105,7 +84,7 @@ export default async function Dashboard() {
       </header>
 
       <main>
-        {/* WELCOME */}
+        {/* HERO */}
         <section className="pro-hero">
           <div className="pro-shell">
             <div className="pro-eyebrow">
@@ -156,8 +135,8 @@ export default async function Dashboard() {
 
         {active ? (
           <>
-            {/* BENEFITS */}
-            <section className="pro-section">
+            {/* ALL SERVICES ARE NOW HERE */}
+            <section className="pro-section pro-benefits-section">
               <div className="pro-shell">
                 <div className="pro-section-heading">
                   <span>START EXPLORING</span>
@@ -170,49 +149,19 @@ export default async function Dashboard() {
                   </p>
                 </div>
 
-                <div className="pro-benefit-grid">
-                  {benefits.map((benefit) => (
-                    <article
-                      className="pro-benefit-card"
-                      key={benefit.name}
-                    >
-                      <div className="pro-benefit-logo">
-                        {benefit.logo ? (
-                          <img
-                            src={benefit.logo}
-                            alt={benefit.name}
-                          />
-                        ) : (
-                          <div className="investors-row-logo">
-                            INVESTOR&apos;S
-                            <strong>ROW</strong>
-                          </div>
-                        )}
-                      </div>
-
-                      <h3>{benefit.offer}</h3>
-
-                      <p>{benefit.description}</p>
-
-                      <a
-                        className="pro-access-link"
-                        href={benefit.href}
-                      >
-                        Access →
-                      </a>
-                    </article>
-                  ))}
-                </div>
+                <BenefitsCarousel />
               </div>
             </section>
 
-            {/* SUPPORT */}
+            {/* MEMBER HELP */}
             <section className="pro-support">
               <div className="pro-shell pro-support-inner">
                 <div>
                   <span>NEED HELP?</span>
 
-                  <h2>Questions about your benefits?</h2>
+                  <h2>
+                    Questions about your benefits?
+                  </h2>
 
                   <p>
                     If you are having issues with discount codes or
@@ -245,7 +194,9 @@ export default async function Dashboard() {
                 <div className="pro-section-heading">
                   <span>MEMBER EXPERIENCES</span>
 
-                  <h2>Events &amp; Live Sessions</h2>
+                  <h2>
+                    Events &amp; Live Sessions
+                  </h2>
 
                   <p>
                     Get free and member-rate access to educational
@@ -255,7 +206,7 @@ export default async function Dashboard() {
                   </p>
                 </div>
 
-                {/* WORKING INTERACTIVE FILTERS */}
+                {/* Keeps the working event filters */}
                 <EventsClient />
 
                 <p className="pro-disclaimer">
@@ -267,123 +218,7 @@ export default async function Dashboard() {
               </div>
             </section>
 
-            {/* PARTNER BENEFITS */}
-            <section className="pro-partners">
-              <div className="pro-shell">
-                <div className="pro-section-heading">
-                  <span>EXCLUSIVE ACCESS</span>
-
-                  <h2>
-                    More Investor&apos;s Pro Benefits
-                  </h2>
-                </div>
-
-                <div className="pro-partner-grid">
-                  {/* CAPITALQUEST */}
-                  <article className="pro-partner-card">
-                    <img
-                      src="/member-assets/capitalquest.jpg"
-                      alt="CapitalQuest"
-                    />
-
-                    <h3>
-                      Free Due Diligence with CapitalQuest
-                    </h3>
-
-                    <p>
-                      Investor&apos;s Pro members get access to
-                      CapitalQuest&apos;s AI-assisted due diligence
-                      tools to support their independent evaluation
-                      of alternative investment opportunities.
-                    </p>
-
-                    <a href="#">
-                      See Your CapitalQuest Benefit →
-                    </a>
-                  </article>
-
-                  {/* IFLIP */}
-                  <article className="pro-partner-card">
-                    <img
-                      src="/member-assets/iflip.png"
-                      alt="iFlip"
-                    />
-
-                    <h3>
-                      Additional SmartFolios Access
-                    </h3>
-
-                    <p>
-                      Access additional SmartFolio options available
-                      as part of your Investor&apos;s Pro
-                      membership.
-                    </p>
-
-                    <a href="#">
-                      Access iFlip →
-                    </a>
-                  </article>
-
-                  {/* SBS */}
-                  <article className="pro-partner-card">
-                    <img
-                      src="/member-assets/sbs.png"
-                      alt="IRA Club SBS"
-                    />
-
-                    <h3>
-                      Save 50% on Your Small Business Plan
-                    </h3>
-
-                    <p>
-                      Investor&apos;s Pro members receive 50% off
-                      eligible IRA Club SBS small-business
-                      retirement plan tiers.
-                    </p>
-
-                    <a href="#">
-                      View SBS Benefit →
-                    </a>
-                  </article>
-                </div>
-              </div>
-            </section>
-
-            {/* SMARTFOLIO */}
-            <section className="pro-section">
-              <div className="pro-shell">
-                <div className="pro-smartfolio">
-                  <div className="pro-smartfolio-content">
-                    <span>SMARTFOLIOS</span>
-
-                    <h2>
-                      More Investing Options for Members
-                    </h2>
-
-                    <p>
-                      Investor&apos;s Pro members receive access to
-                      additional SmartFolio options through iFlip.
-                    </p>
-
-                    <a
-                      href="#"
-                      className="pro-light-button"
-                    >
-                      Access SmartFolios
-                    </a>
-                  </div>
-
-                  <div className="pro-smartfolio-image">
-                    <img
-                      src="/member-assets/smartfolio.png"
-                      alt="SmartFolio"
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* BILLING */}
+            {/* MEMBERSHIP ACCOUNT */}
             <section className="pro-account">
               <div className="pro-shell pro-account-inner">
                 <div>
