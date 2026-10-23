@@ -138,11 +138,17 @@ export default async function InvestorsRowPage() {
             fee or have a question, our team can walk you through
             the investing process from start to finish.
           </p>
-          <span className="service-pending">
-            Schedule a Call with Investments — Coming Soon
-          </span>
+          <a
+  href="https://calendly.com/d/ctfh-j6b-m6t/investment-questions?month=2026-10"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="pro-investment-call-btn"
+>
+  Schedule a Call with Investments →
+</a>
         </section>
       </main>
     </div>
   );
 }
+
