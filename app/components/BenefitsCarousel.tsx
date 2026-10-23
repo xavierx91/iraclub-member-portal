@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useRef } from "react";
 
@@ -72,7 +72,7 @@ export default function BenefitsCarousel() {
         onClick={() => scroll("left")}
         aria-label="Previous member benefits"
       >
-        â€¹
+        &lsaquo;
       </button>
 
       {/* BENEFIT CARDS */}
@@ -100,7 +100,7 @@ export default function BenefitsCarousel() {
               className="pro-access-link"
               href={benefit.href}
             >
-              Access â†’
+              Access &rarr;
             </a>
           </article>
         ))}
@@ -113,7 +113,7 @@ export default function BenefitsCarousel() {
         onClick={() => scroll("right")}
         aria-label="Next member benefits"
       >
-        â€º
+        &rsaquo;
       </button>
     </div>
   );
