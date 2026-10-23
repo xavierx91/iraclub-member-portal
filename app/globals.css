@@ -2538,3 +2538,66 @@ h1 {
     align-items: flex-start;
   }
 }
+
+/* Investor's Row service page */
+.investors-row-embed-section {
+  margin: 45px 0;
+  scroll-margin-top: 30px;
+}
+
+.investors-row-embed-section h2 {
+  color: #093345;
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+
+.investors-row-embed-section > p {
+  margin-bottom: 20px;
+}
+
+.investors-row-iframe {
+  display: block;
+  width: 100%;
+  height: 900px;
+  border: 1px solid #d5e0e5;
+  background: #ffffff;
+}
+
+.investors-row-embed-fallback {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.investors-row-embed-fallback a,
+.investors-row-capitalquest a {
+  color: #008fc7;
+  font-weight: 700;
+}
+
+.investors-row-capitalquest {
+  padding: 28px 32px;
+  margin: 35px 0 45px;
+  background: #f0f0f0;
+}
+
+.investors-row-capitalquest h2 {
+  font-size: 15px;
+  color: #093345;
+}
+
+.investors-row-capitalquest h3 {
+  font-size: 22px;
+  color: #093345;
+  margin: 12px 0;
+}
+
+.investors-row-capitalquest p {
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 760px) {
+  .investors-row-iframe {
+    height: 700px;
+  }
+}

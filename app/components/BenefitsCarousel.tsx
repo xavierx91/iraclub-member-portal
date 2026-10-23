@@ -9,7 +9,7 @@ const benefits = [
     description:
       "Discounted access to Investor's Row for browsing alternative asset opportunities for inspiration.",
     logo: "/member-assets/investors-row.png",
-    href: "#",
+    href: "/dashboard/investors-row",
   },
   {
     name: "IRA Club SBS",
