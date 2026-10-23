@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useRef } from "react";
 
@@ -17,7 +17,7 @@ const benefits = [
     description:
       "50% off for members who are also small business owners who need a flexible, scalable retirement plan.",
     logo: "/member-assets/sbs.png",
-    href: "#",
+    href: "/dashboard/sbs",
   },
   {
     name: "iFlip",
@@ -33,7 +33,7 @@ const benefits = [
     description:
       "Investor's Pro members get access to CapitalQuest's AI-assisted due diligence tools to support their independent evaluation of alternative investment opportunities.",
     logo: "/member-assets/capitalquest.jpg",
-    href: "#",
+    href: "/dashboard/capitalquest",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function BenefitsCarousel() {
         onClick={() => scroll("left")}
         aria-label="Previous member benefits"
       >
-        ‹
+        â€¹
       </button>
 
       {/* BENEFIT CARDS */}
@@ -100,7 +100,7 @@ export default function BenefitsCarousel() {
               className="pro-access-link"
               href={benefit.href}
             >
-              Access →
+              Access â†’
             </a>
           </article>
         ))}
@@ -113,7 +113,7 @@ export default function BenefitsCarousel() {
         onClick={() => scroll("right")}
         aria-label="Next member benefits"
       >
-        ›
+        â€º
       </button>
     </div>
   );
