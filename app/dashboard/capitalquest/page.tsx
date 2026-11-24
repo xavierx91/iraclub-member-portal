@@ -1,4 +1,4 @@
-﻿import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "../../../lib/supabase/server";
 
@@ -73,7 +73,7 @@ export default async function CapitalQuestPage() {
         <section className="service-contact">
           <h2>Connect with Capital Quest</h2>
           <div className="service-contact-inner">
-            <div className="service-photo-placeholder">Photo coming soon</div>
+            <img src="/member-assets/capitalquest-cynthia.jpg" alt="Cynthia Davis" style={{ width: "200px", maxWidth: "100%", height: "200px", objectFit: "cover" }} />
             <div>
               <h3>Cynthia Davis</h3>
               <p>Founder &amp; CEO of Capital Quest</p>

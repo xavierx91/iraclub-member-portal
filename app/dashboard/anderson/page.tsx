@@ -33,8 +33,8 @@ export default async function PartnerPage() {
         <section className={styles.team}>
           <h2>Meet the Team</h2>
           <div className={styles.teamGrid}>
-            <article className={styles.person}><img src="/member-assets/anderson-cynthia.jpg" alt="Cynthia Black" /><h3>Cynthia Black</h3></article>
-            <article className={styles.person}><img src="/member-assets/anderson-patti.png" alt="Patti" /><h3>Patti</h3></article>
+            
+            <article className={styles.person}><img src="/member-assets/anderson-patti.png" alt="Patti Peery" /><h3>Patti Peery</h3></article>
           </div>
         </section>
         <Link href="/dashboard" className={styles.button}>Back to Member Benefits</Link>
