@@ -35,6 +35,20 @@ const benefits = [
     logo: "/member-assets/capitalquest.jpg",
     href: "/dashboard/capitalquest",
   },
+  {
+    "name": "Anderson Advisors",
+    "offer": "Tax, Legal & Asset Protection Strategies",
+    "description": "Access strategic business planning, entity formation, tax planning, and asset protection services.",
+    "logo": "/member-assets/anderson.png",
+    "href": "/dashboard/anderson"
+  },
+  {
+    "name": "Alternative Investing Club",
+    "offer": "Private Market Investment Opportunities",
+    "description": "Explore alternative investments through collective purchasing power, collaborative due diligence, and data-driven investment research.",
+    "logo": "/member-assets/alternative-investing-club.png",
+    "href": "/dashboard/alternative-investing-club"
+  },
 ];
 
 export default function BenefitsCarousel() {
