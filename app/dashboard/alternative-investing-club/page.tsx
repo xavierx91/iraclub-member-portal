@@ -33,7 +33,40 @@ export default async function PartnerPage() {
         <section className={styles.team}>
           <h2>Meet the Team</h2>
           <div className={styles.teamGrid}>
-            <article className={styles.person}><img src="/member-assets/aic-micy.jpg" alt="Micy Liu" /><h3>Micy Liu</h3></article>
+            <article className={styles.person}>
+  <img
+    src="/member-assets/aic-micy.jpg"
+    alt="Micy Liu"
+  />
+
+  <h3>Micy Liu</h3>
+
+  <p style={{ fontWeight: 600 }}>
+    Partner, Alternative Investing Club
+  </p>
+
+  <p>
+    <a href="tel:+14793328775">
+      479-332-8775
+    </a>
+  </p>
+
+  <p style={{ overflowWrap: "anywhere" }}>
+    <a href="mailto:micy@alternativeinvestingclub.com">
+      micy@alternativeinvestingclub.com
+    </a>
+  </p>
+
+  <p style={{ overflowWrap: "anywhere" }}>
+    <a
+      href="https://alternativeinvestingclub.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      alternativeinvestingclub.com
+    </a>
+  </p>
+</article>
           </div>
         </section>
         <Link href="/dashboard" className={styles.button}>Back to Member Benefits</Link>

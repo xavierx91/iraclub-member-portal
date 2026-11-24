@@ -34,7 +34,40 @@ export default async function PartnerPage() {
           <h2>Meet the Team</h2>
           <div className={styles.teamGrid}>
             
-            <article className={styles.person}><img src="/member-assets/anderson-patti.png" alt="Patti Peery" /><h3>Patti Peery</h3></article>
+            <article className={styles.person}>
+  <img
+    src="/member-assets/anderson-patti.png"
+    alt="Patti Peery"
+  />
+
+  <h3>Patti Peery</h3>
+
+  <p style={{ fontWeight: 600 }}>
+    Affiliate Program Manager
+  </p>
+
+  <p>
+    <a href="tel:+18007064741">
+      1-800-706-4741
+    </a>
+  </p>
+
+  <p style={{ overflowWrap: "anywhere" }}>
+    <a href="mailto:affiliates@andersonadvisors.com">
+      affiliates@andersonadvisors.com
+    </a>
+  </p>
+
+  <p style={{ overflowWrap: "anywhere" }}>
+    <a
+      href="https://www.andersonadvisors.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      www.andersonadvisors.com
+    </a>
+  </p>
+</article>
           </div>
         </section>
         <Link href="/dashboard" className={styles.button}>Back to Member Benefits</Link>
